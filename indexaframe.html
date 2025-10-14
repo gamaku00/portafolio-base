@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio Creativo</title>
+  <style>
+    /* Reset y base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Helvetica Neue', sans-serif; background-color: #f5f5f5; color: #222; overflow-x: hidden; scroll-behavior: smooth; }
+
+    /* Menú hamburguesa */
+    .menu-toggle { position: fixed; top: 20px; left: 20px; z-index: 1000; cursor: pointer; }
+    .menu-toggle div { width: 30px; height: 3px; background: #222; margin: 6px 0; transition: 0.4s; }
+
+    nav { position: fixed; top: 0; left: -100%; width: 250px; height: 100%; background: #111; color: white; padding: 2rem; transition: left 0.3s ease; z-index: 999; }
+    nav.active { left: 0; }
+    nav ul { list-style: none; margin-top: 2rem; }
+    nav li { margin: 1rem 0; }
+    nav a { color: white; text-decoration: none; font-size: 1.2rem; }
+
+    /* Secciones */
+    section { min-height: 100vh; padding: 4rem 2rem; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: background 0.5s ease; }
+    .hero { background: linear-gradient(to right, #ff6f61, #ffb347); color: white; }
+    .projects, .services, .contact { background-color: #fff; }
+    .section-title { font-size: 2rem; margin-bottom: 2rem; }
+
+    /* Contenido de proyectos */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; width: 100%; max-width: 1200px; }
+    .card { background: #f0f0f0; padding: 1rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
+    .card:hover { transform: translateY(-5px); }
+    .card img { width: 100%; height: auto; border-radius: 4px; }
+
+    /* Animaciones */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* Footer */
+    footer { background: #111; color: white; text-align: center; padding: 2rem; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menú hamburguesa -->
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <div></div><div></div><div></div>
+  </div>
+
+  <!-- Navegación lateral -->
+  <nav id="sidebar">
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+      <li><a href="https://behance.net" target="_blank">Behance</a></li>
+    </ul>
+  </nav>
+
+  <!-- Sección Hero -->
+  <section id="inicio" class="hero fade-in">
+    <h1 class="section-title">Diseño con propósito</h1>
+    <p>Transformamos ideas en experiencias visuales memorables.</p>
+  </section>
+
+  <!-- Proyectos -->
+  <section id="proyectos" class="projects fade-in">
+    <h2 class="section-title">Proyectos</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="proyecto1.jpg" alt="Proyecto 1" />
+        <h3>Identidad Visual</h3>
+        <p>Diseño de marca para empresa emergente.</p>
+      </div>
+      <div class="card">
+        <img src="proyecto2.jpg" alt="Proyecto 2" />
+        <h3>Diseño Web</h3>
+        <p>Interfaz moderna y funcional para e-commerce.</p>
+      </div>
+      <!-- Más tarjetas aquí -->
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section id="servicios" class="services fade-in">
+    <h2 class="section-title">Servicios</h2>
+    <div class="grid">
+      <div class="card"><h4>Diseño gráfico</h4><p>Logotipos, posters, branding.</p></div>
+      <div class="card"><h4>Diseño web</h4><p>Interfaces limpias y funcionales.</p></div>
+      <div class="card"><h4>Fotografía</h4><p>Retrato, producto, editorial.</p></div>
+      <div class="card"><h4>Consultoría</h4><p>Dirección creativa y estrategia.</p></div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="contact fade-in">
+    <h2 class="section-title">Contacto</h2>
+    <form style="max-width: 600px; width: 100%;">
+      <input type="text" placeholder="Tu nombre" required style="width:100%; padding:1rem; margin-bottom:1rem;" />
+      <input type="email" placeholder="Tu correo" required style="width:100%; padding:1rem; margin-bottom:1rem;" />
+      <textarea placeholder="Tu mensaje" required style="width:100%; padding:1rem; margin-bottom:1rem;" rows="5"></textarea>
+      <button type="submit" style="padding:1rem 2rem; background:#ff6f61; color:white; border:none; border-radius:4px;">Enviar</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Portafolio Creativo. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    function toggleMenu() {
+      document.getElementById('sidebar').classList.toggle('active');
+    }
+
+    // Animaciones al hacer scroll
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.2 };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  </script>
+</body>
+</html>
