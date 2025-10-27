@@ -1,4 +1,4 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -22,7 +22,11 @@
 
     /* reemplaza la regla .image-right por estas reglas */
     .hero {
-      background: linear-gradient(to right, #064d04, #064d04);
+      background: #f5f5f5; /* Fondo neutro por defecto */
+      background-image: url("https://e0.pxfuel.com/wallpapers/848/466/desktop-wallpaper-fanart-video-game-favourites-game-game-mashup.jpg"); 
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       color: white;
       position: relative;
       min-height: 100vh;
@@ -30,6 +34,19 @@
       display: flex;
       align-items: center;
       overflow: hidden;
+    }
+
+    /* Overlay opcional para mejorar la legibilidad del texto sobre la imagen */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3); /* Overlay semi-transparente */
+      z-index: 2;
+      pointer-events: none;
     }
 
      /* container fijo: permitir overflow para que la imagen no se recorte por la caja */
@@ -71,7 +88,7 @@
       max-width: 1100px;
       width: 100%;
       margin: 0 auto;
-      z-index: 3; /* encima del verde */
+      z-index: 5; /* encima del overlay */
       flex-wrap: wrap;
       height: 100%; /* <-- cambiar 50% a 100% para permitir align-self: flex-end */
       position: relative;
@@ -122,7 +139,6 @@
 
     /* Secciones */
     section { min-height: 100vh; padding: 4rem 2rem; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: background 0.5s ease; }
-    .hero { background: linear-gradient(to right, #064d04, #064d04); color: white; }
     .projects, .services, .contact { background-color: #fff; }
     .section-title { font-size: 2rem; margin-bottom: 2rem; }
 
@@ -183,7 +199,7 @@
 
     .hero-text {
       position: absolute;
-      z-index: 5;
+      z-index: 10;
       left: 35%;
       top: 40%;
       transform: translate(-50%, -50%);
@@ -318,7 +334,7 @@
     </a>
 
     <!-- Proyecto 2 -->
-    <a href="https://gamaku00.github.io/galeria-de-imagen/" target="_blank" style="text-decoration: none; color: inherit;">
+    <a href="https://www.ejemplo2.com" target="_blank" style="text-decoration: none; color: inherit;">
       <div class="card">
         <img src="foto.png" alt="Proyecto 2" />
         <h3>fotografia</h3>
@@ -335,7 +351,7 @@
       </div>
     </a>
         <!-- Proyecto 1 -->
-    <a href="https://gamaku00.github.io/galeria-de-modelaje/" target="_blank" style="text-decoration: none; color: inherit;">
+    <a href="https://www.ejemplo1.com" target="_blank" style="text-decoration: none; color: inherit;">
       <div class="card">
         <img src="modelaje.png" alt="Proyecto 1" />
         <h3>modelaje</h3>
