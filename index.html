@@ -1,15 +1,16 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portafolio Creativo</title>
+  <title>Portafolio Gamaku0</title>
   <style>
-    /* Reset y base */
+    
+   
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Helvetica Neue', sans-serif; background-color: #f5f5f5; color: #222; overflow-x: hidden; scroll-behavior: smooth; }
 
-    /* Menú hamburguesa */
+
     .menu-toggle { position: fixed; top: 20px; left: 20px; z-index: 1000; cursor: pointer; }
     .menu-toggle div { width: 30px; height: 3px; background: #222; margin: 6px 0; transition: 0.4s; }
 
@@ -19,29 +20,461 @@
     nav li { margin: 1rem 0; }
     nav a { color: white; text-decoration: none; font-size: 1.2rem; }
 
-    /* Secciones */
+    .hero {
+     
+      background-image: url("https://e0.pxfuel.com/wallpapers/848/466/desktop-wallpaper-fanart-video-game-favourites-game-game-mashup.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: white;
+      position: relative;
+      min-height: 100vh;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3); 
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .image-right {
+      position: fixed;
+      top: 50%;
+      right: -25vw;        
+      height: 100vh;
+      width: auto;
+      transform: translateY(-50%);
+      overflow: visible;   
+      z-index: 1;
+      pointer-events: none;
+      background: transparent;
+      box-shadow: none;
+    }
+
+.image-right img {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%) scale(0.75); 
+      transform-origin: right center;
+      height: auto;
+      width: auto;
+      min-height: 107vh;  
+      max-width: none;
+      display: block;
+      object-fit: cover;
+      object-position: right center;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+ 
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      z-index: 5; 
+      flex-wrap: wrap;
+      height: 100%; 
+      position: relative;
+    }
+
+    .person-image {
+      flex: 0 0 auto;
+      width: clamp(320px, 45vw, 350px);
+       right: 23px;
+      background: transparent;
+      box-shadow: none;
+      padding: 0;
+      border-radius: 0;
+      margin-right: 2vw;
+      position: relative;
+      z-index: 10;
+      align-self: flex-end; 
+      margin-bottom: clamp(1px, 1vh, 1px);
+      transition: transform 300ms ease; 
+      transform: translateY(0); 
+    }
+
+    .person-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      border-radius: 0;
+      margin-bottom: -2px; 
+    }
+   .person-move-left-2vw  { transform: translate(-2vw, 14vh) !important; }
+    .person-move-left-4vw  { transform: translate(-4vw, 14vh) !important; }
+    .person-move-left-6vw  { transform: translate(-6vw, 14vh) !important; }
+    .person-move-left-8vw  { transform: translate(-8vw, 14vh) !important; }
+    
+   .person-move-left-24px { transform: translate(-24px, 14vh) !important; } 
+    .hero-text {
+      flex: 1 1 auto;
+      color: white;
+      font-weight: 700;
+      font-size: clamp(28px, 4.4vw, 56px);
+      line-height: 1.02;
+      max-width: 740px;
+    
+      display: flex;
+      align-items: center;
+    }
+
+  
     section { min-height: 100vh; padding: 4rem 2rem; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: background 0.5s ease; }
-    .hero { background: linear-gradient(to right, #ff6f61, #ffb347); color: white; }
     .projects, .services, .contact { background-color: #fff; }
     .section-title { font-size: 2rem; margin-bottom: 2rem; }
 
-    /* Contenido de proyectos */
+
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; width: 100%; max-width: 1200px; }
     .card { background: #f0f0f0; padding: 1rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
     .card:hover { transform: translateY(-5px); }
     .card img { width: 100%; height: auto; border-radius: 4px; }
 
-    /* Animaciones */
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; width: 100%; max-width: 1200px; }
+    .card { background: #f0f0f0; padding: 1rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
+    .card:hover { transform: translateY(-5px); }
+    .card img { width: 100%; height: auto; border-radius: 4px; }
+
+  
     .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-    /* Footer */
+
     footer { background: #111; color: white; text-align: center; padding: 2rem; }
 
     /* Responsive */
     @media (max-width: 768px) {
       nav { width: 100%; }
     }
+
+
+    .hero-inner {
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      min-height: 80vh;
+      position: relative;
+      padding: 2rem;
+    }
+
+    .person-image {
+      position: absolute;
+      z-index: 10;
+      width: clamp(280px, 35vw, 500px);
+        bottom: -50px; /
+      left: 67%;
+      transform: translateX(-50%);
+     
+    }
+    
+
+      .move-up-10 { bottom: -10px !important; }
+      .move-up-20 { bottom: -20px !important; }
+      .move-up-30 { bottom: -30px !important; }
+    
+      .move-down-90 { bottom: -0px !important; }
+      .move-down-70 { bottom: -70px !important; }
+      .move-down-80 { bottom: -80px !important; }
+      .move-down-150 { bottom: -90px !important; }
+      .move-down-190{ bottom: -190px !important; }
+
+    .hero-text {
+      position: absolute;
+      z-index: 10;
+      left: 35%;
+      top: 40%;
+      transform: translate(-50%, -50%);
+      text-align: left;
+      width: 100%;
+      padding: 0 2rem;
+    }
+
+    .brand {
+      font-size: clamp(100px, 8vw, 240px) !important;
+      font-weight: 800;
+      line-height: 0.9;
+      letter-spacing: -2px;
+      text-transform: uppercase;
+      display: block;
+      text-shadow: 15px 10px 2px rgba(0,0,0,0.2);
+    }
+
+    .subtitle {
+      font-size: clamp(14px, 2vw, 24px) !important;
+      font-weight: 500;
+      opacity: 0.9;
+      margin-top: 2.6rem;
+      display: block;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+
+    /* Responsive para móviles */
+    @media (max-width: 768px) {
+      /* Hero responsive */
+      .hero {
+        background-attachment: scroll; 
+        min-height: 100vh;
+      }
+      
+      .hero-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 1rem;
+        min-height: 90vh;
+        justify-content: center;
+      }
+      
+      .hero-text {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        text-align: center;
+        width: 100%;
+        padding: 1rem;
+        z-index: 10;
+        order: 1;
+      }
+      
+      .person-image {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        transform: none;
+        width: clamp(200px, 60vw, 300px);
+        margin: 0 auto;
+        order: 2;
+        z-index: 10;
+      }
+      
+      .brand {
+        font-size: clamp(60px, 15vw, 120px) !important;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+      }
+      
+      .subtitle {
+        font-size: clamp(12px, 4vw, 18px) !important;
+        margin-top: 1rem;
+      }
+      
+      /* Imagen decorativa derecha */
+      .image-right {
+        display: none; 
+      }
+      
+      /* Navegación móvil */
+      nav {
+        width: 100%;
+        left: -100%;
+      }
+      
+      .nav-links {
+        font-size: 0.9rem;
+      }
+      
+      /* Secciones */
+      section {
+        padding: 3rem 1rem;
+        min-height: auto;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+      }
+      
+      /* Grid responsive */
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+      }
+      
+      .card {
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      
+      .contact form {
+        padding: 0 1rem;
+      }
+      
+      .contact input,
+      .contact textarea {
+        font-size: 16px; 
+      }
+    }
+
+    /* Responsive para tabletas */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .hero {
+        background-attachment: scroll;
+      }
+      
+      .hero-inner {
+        gap: 2rem;
+        padding: 2rem;
+      }
+      
+      .hero-text {
+        left: 30%;
+        padding: 0 1rem;
+      }
+      
+      .person-image {
+        width: clamp(250px, 40vw, 400px);
+        left: 65%;
+      }
+      
+      .brand {
+        font-size: clamp(80px, 10vw, 180px) !important;
+      }
+      
+      .subtitle {
+        font-size: clamp(16px, 3vw, 22px) !important;
+      }
+      
+      /* Grid para tablets */
+      .grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+      
+      /* Navegación para tablets */
+      nav {
+        width: 300px;
+      }
+      
+      section {
+        padding: 3rem 2rem;
+      }
+    }
+
+   
+    @media (max-width: 480px) {
+      .hero-inner {
+        padding: 0.5rem;
+        gap: 0.5rem;
+      }
+      
+      .hero-text {
+        padding: 0.5rem;
+      }
+      
+      .brand {
+        font-size: clamp(40px, 12vw, 80px) !important;
+        text-shadow: 8px 5px 1px rgba(0,0,0,0.3);
+      }
+      
+      .subtitle {
+        font-size: clamp(10px, 3.5vw, 14px) !important;
+        margin-top: 0.5rem;
+      }
+      
+      .person-image {
+        width: clamp(150px, 70vw, 250px);
+      }
+      
+      .menu-toggle {
+        top: 15px;
+        left: 15px;
+      }
+      
+      .menu-toggle div {
+        width: 25px;
+        height: 2px;
+      }
+      
+      section {
+        padding: 2rem 0.5rem;
+      }
+      
+      .section-title {
+        font-size: 1.5rem;
+      }
+      
+      .card {
+        padding: 1rem;
+      }
+      
+      nav {
+        padding: 1.5rem;
+      }
+      
+      nav a {
+        font-size: 1rem;
+      }
+    }
+
+  
+    @media (min-width: 1400px) {
+      .hero-inner {
+        max-width: 1400px;
+      }
+      
+      .grid {
+        max-width: 1400px;
+      }
+    }
+
+    
+    @media (max-height: 500px) and (orientation: landscape) {
+      .hero {
+        min-height: 100vh;
+      }
+      
+      .hero-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 80vh;
+      }
+      
+      .hero-text {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        width: 50%;
+        order: 1;
+      }
+      
+      .person-image {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        transform: none;
+        width: 40%;
+        order: 2;
+      }
+      
+      .brand {
+        font-size: clamp(30px, 8vw, 60px) !important;
+        line-height: 0.9;
+      }
+    }
+    
   </style>
 </head>
 <body>
@@ -51,50 +484,194 @@
     <div></div><div></div><div></div>
   </div>
 
-  <!-- Navegación lateral -->
+
+
+    
+ 
   <nav id="sidebar">
     <ul>
       <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#sobre mi">sobre mi</a></li>
       <li><a href="#proyectos">Proyectos</a></li>
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#contacto">Contacto</a></li>
-      <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
-      <li><a href="https://behance.net" target="_blank">Behance</a></li>
+      <li><a href="https://www.instagram.com/baul_dkevin" target="_blank">muestras ig</a></li>
+      <li><a href="https://www.instagram.com/kv.garrcia" target="_blank">Instagram</a></li>
+      <li><a href="https://www.facebook.com/kv.garrcia" target="_blank">facebook</a></li>
+      <li><a href="https://www.instagram.com/utk_studios" target="_blank">UTK</a></li>
+      <li><a href="https://www.behance.net/garciasan" target="_blank">Behance</a></li>
     </ul>
   </nav>
 
-  <!-- Sección Hero -->
+    
   <section id="inicio" class="hero fade-in">
-    <h1 class="section-title">Diseño con propósito</h1>
-    <p>Transformamos ideas en experiencias visuales memorables.</p>
+    <div class="hero-inner">
+      <!-- PERSONA primero arriba -->
+        <div class="person-image move-down-190">
+        <img src="yo.png" alt="Persona central">
+      </div>
+      
+      <!-- TEXTO grande abajo -->
+      <div class="hero-text">
+        <span class="brand">GAMAKU</span>
+        <span class="subtitle"><p style="font-size: 20px; color: #ccc;">produccion multimedia</p>
+</span>
+      </div>
+    </div>
+
+    <!-- Imagen decorativa que sobresale a la derecha (verde) -->
+    <div class="image-right" aria-hidden="true">
+      <img src="verde.png" alt="">
+    </div>
+  </section>
+
+  <!-- Sobre mi -->
+  <section id="sobre mi" class="services fade-in">
+    <h2 class="section-title">sobre mi</h2>
+    <div class="grid">
+     <div class="card">
+  <span class="brand">quien soy</span>
+  <div class="grid" style="margin-top: 40px;"></div>
+  <p style="font-family: 'Helvetica Neue', sans-serif; font-size: 16px; line-height: 1.6;">
+    Mi nombre es Kevin García, aunque en el mundo creativo me conocen como Gamaku0.
+    Soy diseñador gráfico y productor multimedia, con más de cuatro años de experiencia en la creación de contenido visual que busca no solo destacar, sino también comunicar emociones y contar historias.
+
+    A lo largo de mi trayectoria he trabajado en proyectos que van desde branding y diseño web, hasta modelado, fotografía y producción audiovisual. Mi enfoque combina creatividad, técnica y estrategia, buscando siempre un equilibrio entre lo estético y lo funcional. Creo firmemente que un buen diseño no solo debe verse bien, sino también transmitir un mensaje con claridad y propósito
+    <br><br>
+    Además, soy un ilustrador apasionado, con un estilo versátil que evoluciona constantemente. La mayoría de mis trabajos y procesos creativos los comparto en mis redes —especialmente en Facebook, donde muestro avances, bocetos y proyectos terminados—, creando un espacio cercano con quienes siguen mi trabajo y mi crecimiento artístico. 
+    <br><br>
+    <img src="pequeño.png" alt="yo o algo" width="300">
+
+</div>
+    <div class="card">
+    <img src="ya.png" alt="yo o algo" width="130">
+  <p style="font-family: 'Helvetica Neue', sans-serif; font-size: 16px; line-height: 1.6;">
+    Me considero una persona curiosa, comprometida y apasionada por la narración visual. Encuentro inspiración en los detalles cotidianos y disfruto explorar nuevas ideas, conceptos y estilos que me permitan comunicar emociones de forma auténtica. Mi objetivo es crear experiencias visuales que conecten con las personas, transmitiendo mensajes que inspiren y dejen huella.
+    <br><br>
+    Actualmente, busco nuevos retos que me impulsen a seguir aprendiendo, perfeccionar mis habilidades y seguir creciendo dentro del mundo del arte y la comunicación visual. Cada proyecto representa para mí una oportunidad para evolucionar creativamente y expresar una identidad visual genuina.
+    <br><br>
+  </p>
+
+    </div>
   </section>
 
   <!-- Proyectos -->
-  <section id="proyectos" class="projects fade-in">
-    <h2 class="section-title">Proyectos</h2>
-    <div class="grid">
+<section id="proyectos" class="projects fade-in">
+  <h2 class="section-title">Proyectos</h2>
+  <div class="grid">
+
+    <!-- Proyecto 1 -->
+    <a href="https://www.ejemplo1.com" target="_blank" style="text-decoration: none; color: inherit;">
       <div class="card">
-        <img src="proyecto1.jpg" alt="Proyecto 1" />
-        <h3>Identidad Visual</h3>
-        <p>Diseño de marca para empresa emergente.</p>
+        <img src="dibujo.png" alt="Proyecto 1" />
+        <h3>ilustracion</h3>
+        <p>aun no subire nada en ilustracion.</p>
       </div>
+    </a>
+
+    <!-- Proyecto 2 -->
+    <a href="https://gamaku00.github.io/galeria-de-imagen/" target="_blank" style="text-decoration: none; color: inherit;">
       <div class="card">
-        <img src="proyecto2.jpg" alt="Proyecto 2" />
-        <h3>Diseño Web</h3>
-        <p>Interfaz moderna y funcional para e-commerce.</p>
+        <img src="foto.png" alt="Proyecto 2" />
+        <h3>fotografia</h3>
+        <p>en esta seccion encontraras algunos de mis trabajos en esta area.</p>
       </div>
-      <!-- Más tarjetas aquí -->
-    </div>
-  </section>
+    </a>
+
+    <!-- Proyecto 3 -->
+    <a href="https://www.ejemplo3.com" target="_blank" style="text-decoration: none; color: inherit;">
+      <div class="card">
+        <img src="web.png" alt="Proyecto 3" />
+        <h3>web design</h3>
+        <p>eesta en mantenimiento .</p>
+      </div>
+    </a>
+        <!-- Proyecto 1 -->
+    <a href="https://gamaku00.github.io/galeria-de-modelaje/" target="_blank" style="text-decoration: none; color: inherit;">
+      <div class="card">
+        <img src="modelaje.png" alt="Proyecto 1" />
+        <h3>modelaje</h3>
+        <p>en esta seccion encontraras algunos de mis trabajos en esta area.</p>
+      </div>
+    </a>
+
+    <!-- Proyecto 2 -->
+    <a href="https://www.ejemplo2.com" target="_blank" style="text-decoration: none; color: inherit;">
+      <div class="card">
+        <img src="code.png" alt="Proyecto 2" />
+        <h3>codigo</h3>
+        <p>eesta en mantenimiento.</p>
+      </div>
+    </a>
+
+    <!-- Proyecto 3 -->
+    <a href="https://www.ejemplo3.com" target="_blank" style="text-decoration: none; color: inherit;">
+      <div class="card">
+        <img src="mook.png" alt="Proyecto 3" />
+        <h3>moockup</h3>
+        <p>area de muestreo aun no terminada.</p>
+      </div>
+    </a>
+        <!-- Proyecto 1 -->
+    <a href="https://www.ejemplo1.com" target="_blank" style="text-decoration: none; color: inherit;">
+      <div class="card">
+        <img src="video.png" alt="Proyecto 1" />
+        <h3>video</h3>
+        <p>aqui deberia haber video pero es pesado hacerlo.</p>
+      </div>
+    </a>
+
+    <!-- Proyecto 2 -->
+    <a href="https://www.ejemplo2.com" target="_blank" style="text-decoration: none; color: inherit;">
+      <div class="card">
+        <img src="emprendimiento.png" alt="Proyecto 2" />
+        <h3>emprendimiento</h3>
+        <p>eaqui va proyecto final.</p>
+      </div>
+    </a>
+
+    <!-- Proyecto 3 -->
+    <a href="https://www.ejemplo3.com" target="_blank" style="text-decoration: none; color: inherit;">
+      <div class="card">
+        <img src="multimedia.png" alt="Proyecto 3" />
+        <h3>produccion multimedia</h3>
+        <p>en esta muestro trabajos que hice (adivinaron mantenimiento tambien).</p>
+      </div>
+    </a>
+
+  </div>
+</section>
 
   <!-- Servicios -->
   <section id="servicios" class="services fade-in">
     <h2 class="section-title">Servicios</h2>
     <div class="grid">
-      <div class="card"><h4>Diseño gráfico</h4><p>Logotipos, posters, branding.</p></div>
-      <div class="card"><h4>Diseño web</h4><p>Interfaces limpias y funcionales.</p></div>
-      <div class="card"><h4>Fotografía</h4><p>Retrato, producto, editorial.</p></div>
-      <div class="card"><h4>Consultoría</h4><p>Dirección creativa y estrategia.</p></div>
+      <div class="card"><h4>Diseño gráfico</h4>
+        <p>Creación de piezas visuales que refuercen la identidad de una marca o proyecto, combinando estética, coherencia y funcionalidad para lograr una comunicación visual efectiva.</p></div>
+      <div class="card"><h4>branding e identidad visual</h4>
+        <p>Desarrollo de logotipos, paletas de color, tipografías y sistemas visuales que representen la esencia de una marca y generen reconocimiento.</p></div>
+      <div class="card"><h4>diseño web</h4>
+        <p>Diseño de interfaces atractivas, funcionales y adaptadas a la experiencia del usuario, asegurando navegación fluida y coherencia visual en entornos digitales.</p></div>
+      <div class="card"><h4>produccion audiovisual</h4>
+        <p>Planificación, grabación y edición de contenido en video, desde piezas promocionales hasta proyectos narrativos o corporativos, cuidando ritmo, estética y narrativa visual.</p></div>
+      <div class="card"><h4>fotografia</h4>
+        <p>Captura y edición de imágenes con enfoque en composición, iluminación y mensaje visual, aplicable en campañas, productos o proyectos artísticos.</p></div>
+      <div class="card"><h4>ilustracion</h4>
+        <p>Creación de ilustraciones personalizadas para piezas gráficas, animaciones o contenidos editoriales, explorando distintos estilos según la necesidad del proyecto.</p></div>
+      <div class="card"><h4>Edición y postproducción de audio</h4>
+        <p>Limpieza, mezcla y optimización del sonido para piezas audiovisuales, buscando calidad y coherencia entre la atmósfera auditiva y la intención visual</p></div>
+      <div class="card"><h4>Animación y motion graphics</h4>
+        <p>Diseño de animaciones 2D/3D o gráficos en movimiento que aporten dinamismo y refuercen el mensaje visual de una marca o proyecto multimedia.</p></div>
+      <div class="card"><h4>Gestión de contenido digital</h4>
+        <p>Creación, planificación y optimización de material visual para redes sociales o plataformas digitales, garantizando coherencia estética y comunicación efectiva.</p></div>
+      <div class="card"><h4>Dirección creativa</h4>
+        <p>Supervisión conceptual y visual de proyectos multimedia, coordinando equipos creativos y asegurando que cada pieza refleje la visión e identidad del proyecto.</p></div>
+      <div class="card"><h4>modelaje</h4>
+        <p>puedo encargarme de la imagen o actuacion en pequeños papeles ademas poder ser usado como imagen si llega a ser nesesario</p></div>
+      <div class="card"><h4>diseño de juegos</h4><p>puedo encargarme en algunos ambitos para proyectos indie</p></div>
+      <div class="card"><h4>diseño de comics</h4><p>puedo encargarme en algunos ambitos para proyectos indie</p></div>
+      <div class="card"><h4>diseño de personaje</h4><p>puedo encargarme en algunos ambitos para proyectos indie</p></div>
+      <div class="card"><h4>diseño de presentaciones</h4><p>puedo encargarme en algunos ambitos para proyectos indie</p></div>
     </div>
   </section>
 
@@ -111,10 +688,10 @@
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Portafolio Creativo. Todos los derechos reservados.</p>
+    <p>&copy; 2025 Portafolio kevin garcia. Todos los derechos reservados a gamakuo.</p>
   </footer>
 
-  <!-- Scripts -->
+
   <script>
     function toggleMenu() {
       document.getElementById('sidebar').classList.toggle('active');
