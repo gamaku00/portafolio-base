@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -6,11 +6,11 @@
   <title>Portafolio Gamaku0</title>
   <style>
     
-    /* Reset y base */
+   
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Helvetica Neue', sans-serif; background-color: #f5f5f5; color: #222; overflow-x: hidden; scroll-behavior: smooth; }
 
-    /* Menú hamburguesa */
+
     .menu-toggle { position: fixed; top: 20px; left: 20px; z-index: 1000; cursor: pointer; }
     .menu-toggle div { width: 30px; height: 3px; background: #222; margin: 6px 0; transition: 0.4s; }
 
@@ -20,13 +20,13 @@
     nav li { margin: 1rem 0; }
     nav a { color: white; text-decoration: none; font-size: 1.2rem; }
 
-    /* reemplaza la regla .image-right por estas reglas */
     .hero {
-      background: #f5f5f5; /* Fondo neutro por defecto */
-      background-image: url("https://e0.pxfuel.com/wallpapers/848/466/desktop-wallpaper-fanart-video-game-favourites-game-game-mashup.jpg"); 
+     
+      background-image: url("https://e0.pxfuel.com/wallpapers/848/466/desktop-wallpaper-fanart-video-game-favourites-game-game-mashup.jpg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      background-attachment: fixed;
       color: white;
       position: relative;
       min-height: 100vh;
@@ -36,7 +36,7 @@
       overflow: hidden;
     }
 
-    /* Overlay opcional para mejorar la legibilidad del texto sobre la imagen */
+    
     .hero::before {
       content: '';
       position: absolute;
@@ -44,20 +44,19 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(0, 0, 0, 0.3); /* Overlay semi-transparente */
+      background: rgba(0, 0, 0, 0.3); 
       z-index: 2;
       pointer-events: none;
     }
 
-     /* container fijo: permitir overflow para que la imagen no se recorte por la caja */
     .image-right {
       position: fixed;
       top: 50%;
-      right: -25vw;        /* mueve más hacia la derecha (ajusta -18vw → -30vw) */
+      right: -25vw;        
       height: 100vh;
       width: auto;
       transform: translateY(-50%);
-      overflow: visible;   /* no recorta la imagen dentro del contenedor */
+      overflow: visible;   
       z-index: 1;
       pointer-events: none;
       background: transparent;
@@ -68,11 +67,11 @@
       position: absolute;
       right: 0;
       top: 50%;
-      transform: translateY(-50%) scale(0.75); /* escala menor -> se encoge un poco */
+      transform: translateY(-50%) scale(0.75); 
       transform-origin: right center;
       height: auto;
       width: auto;
-      min-height: 107vh;   /* reduce si quieres menos tamaño vertical */
+      min-height: 107vh;  
       max-width: none;
       display: block;
       object-fit: cover;
@@ -80,7 +79,7 @@
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
     }
-   /* nuevo layout interior del hero */
+ 
     .hero-inner {
       display: flex;
       align-items: center;
@@ -88,9 +87,9 @@
       max-width: 1100px;
       width: 100%;
       margin: 0 auto;
-      z-index: 5; /* encima del overlay */
+      z-index: 5; 
       flex-wrap: wrap;
-      height: 100%; /* <-- cambiar 50% a 100% para permitir align-self: flex-end */
+      height: 100%; 
       position: relative;
     }
 
@@ -105,10 +104,10 @@
       margin-right: 2vw;
       position: relative;
       z-index: 10;
-      align-self: flex-end; /* sitúa por defecto en la parte baja del hero */
+      align-self: flex-end; 
       margin-bottom: clamp(1px, 1vh, 1px);
-      transition: transform 300ms ease; /* suave al moverla */
-      transform: translateY(0); /* valor por defecto corregido */
+      transition: transform 300ms ease; 
+      transform: translateY(0); 
     }
 
     .person-image img {
@@ -117,7 +116,7 @@
       display: block;
       object-fit: contain;
       border-radius: 0;
-      margin-bottom: -2px; /* elimina pequeño espacio en blanco debajo de la imagen */
+      margin-bottom: -2px; 
     }
    .person-move-left-2vw  { transform: translate(-2vw, 14vh) !important; }
     .person-move-left-4vw  { transform: translate(-4vw, 14vh) !important; }
@@ -132,33 +131,33 @@
       font-size: clamp(28px, 4.4vw, 56px);
       line-height: 1.02;
       max-width: 740px;
-      /* centra verticalmente si la persona ocupa más alto */
+    
       display: flex;
       align-items: center;
     }
 
-    /* Secciones */
+  
     section { min-height: 100vh; padding: 4rem 2rem; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: background 0.5s ease; }
     .projects, .services, .contact { background-color: #fff; }
     .section-title { font-size: 2rem; margin-bottom: 2rem; }
 
-    /* Contenido de proyectos */
+
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; width: 100%; max-width: 1200px; }
     .card { background: #f0f0f0; padding: 1rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
     .card:hover { transform: translateY(-5px); }
     .card img { width: 100%; height: auto; border-radius: 4px; }
 
-  /* Contenido de hacerca de mi */
+
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; width: 100%; max-width: 1200px; }
     .card { background: #f0f0f0; padding: 1rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
     .card:hover { transform: translateY(-5px); }
     .card img { width: 100%; height: auto; border-radius: 4px; }
 
-    /* Animaciones */
+  
     .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-    /* Footer */
+
     footer { background: #111; color: white; text-align: center; padding: 2rem; }
 
     /* Responsive */
@@ -166,7 +165,7 @@
       nav { width: 100%; }
     }
 
-    /* Layout centrado para hero */
+
     .hero-inner {
       flex-direction: row;
       align-items: center;
@@ -180,13 +179,13 @@
       position: absolute;
       z-index: 10;
       width: clamp(280px, 35vw, 500px);
-        bottom: -50px; /* posición base, ajustable con las clases move-up o move-down */
+        bottom: -50px; /
       left: 67%;
       transform: translateX(-50%);
-      /* image-shadow: 2 10px 15px rgba(0,0,0,0.3); */
+     
     }
     
-      /* Clases para ajustar la posición vertical de la persona */
+
       .move-up-10 { bottom: -10px !important; }
       .move-up-20 { bottom: -20px !important; }
       .move-up-30 { bottom: -30px !important; }
@@ -229,13 +228,250 @@
 
     /* Responsive para móviles */
     @media (max-width: 768px) {
+      /* Hero responsive */
+      .hero {
+        background-attachment: scroll; 
+        min-height: 100vh;
+      }
+      
       .hero-inner {
         flex-direction: column;
         text-align: center;
-        gap: 2rem;
+        gap: 1rem;
+        padding: 1rem;
+        min-height: 90vh;
+        justify-content: center;
       }
+      
       .hero-text {
-        padding-right: 0;
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        text-align: center;
+        width: 100%;
+        padding: 1rem;
+        z-index: 10;
+        order: 1;
+      }
+      
+      .person-image {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        transform: none;
+        width: clamp(200px, 60vw, 300px);
+        margin: 0 auto;
+        order: 2;
+        z-index: 10;
+      }
+      
+      .brand {
+        font-size: clamp(60px, 15vw, 120px) !important;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+      }
+      
+      .subtitle {
+        font-size: clamp(12px, 4vw, 18px) !important;
+        margin-top: 1rem;
+      }
+      
+      /* Imagen decorativa derecha */
+      .image-right {
+        display: none; 
+      }
+      
+      /* Navegación móvil */
+      nav {
+        width: 100%;
+        left: -100%;
+      }
+      
+      .nav-links {
+        font-size: 0.9rem;
+      }
+      
+      /* Secciones */
+      section {
+        padding: 3rem 1rem;
+        min-height: auto;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+      }
+      
+      /* Grid responsive */
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+      }
+      
+      .card {
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      
+      .contact form {
+        padding: 0 1rem;
+      }
+      
+      .contact input,
+      .contact textarea {
+        font-size: 16px; 
+      }
+    }
+
+    /* Responsive para tabletas */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .hero {
+        background-attachment: scroll;
+      }
+      
+      .hero-inner {
+        gap: 2rem;
+        padding: 2rem;
+      }
+      
+      .hero-text {
+        left: 30%;
+        padding: 0 1rem;
+      }
+      
+      .person-image {
+        width: clamp(250px, 40vw, 400px);
+        left: 65%;
+      }
+      
+      .brand {
+        font-size: clamp(80px, 10vw, 180px) !important;
+      }
+      
+      .subtitle {
+        font-size: clamp(16px, 3vw, 22px) !important;
+      }
+      
+      /* Grid para tablets */
+      .grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+      
+      /* Navegación para tablets */
+      nav {
+        width: 300px;
+      }
+      
+      section {
+        padding: 3rem 2rem;
+      }
+    }
+
+   
+    @media (max-width: 480px) {
+      .hero-inner {
+        padding: 0.5rem;
+        gap: 0.5rem;
+      }
+      
+      .hero-text {
+        padding: 0.5rem;
+      }
+      
+      .brand {
+        font-size: clamp(40px, 12vw, 80px) !important;
+        text-shadow: 8px 5px 1px rgba(0,0,0,0.3);
+      }
+      
+      .subtitle {
+        font-size: clamp(10px, 3.5vw, 14px) !important;
+        margin-top: 0.5rem;
+      }
+      
+      .person-image {
+        width: clamp(150px, 70vw, 250px);
+      }
+      
+      .menu-toggle {
+        top: 15px;
+        left: 15px;
+      }
+      
+      .menu-toggle div {
+        width: 25px;
+        height: 2px;
+      }
+      
+      section {
+        padding: 2rem 0.5rem;
+      }
+      
+      .section-title {
+        font-size: 1.5rem;
+      }
+      
+      .card {
+        padding: 1rem;
+      }
+      
+      nav {
+        padding: 1.5rem;
+      }
+      
+      nav a {
+        font-size: 1rem;
+      }
+    }
+
+  
+    @media (min-width: 1400px) {
+      .hero-inner {
+        max-width: 1400px;
+      }
+      
+      .grid {
+        max-width: 1400px;
+      }
+    }
+
+    
+    @media (max-height: 500px) and (orientation: landscape) {
+      .hero {
+        min-height: 100vh;
+      }
+      
+      .hero-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 80vh;
+      }
+      
+      .hero-text {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        width: 50%;
+        order: 1;
+      }
+      
+      .person-image {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        transform: none;
+        width: 40%;
+        order: 2;
+      }
+      
+      .brand {
+        font-size: clamp(30px, 8vw, 60px) !important;
+        line-height: 0.9;
       }
     }
     
@@ -251,7 +487,7 @@
 
 
     
-  <!-- Navegación lateral -->
+ 
   <nav id="sidebar">
     <ul>
       <li><a href="#inicio">Inicio</a></li>
@@ -267,7 +503,7 @@
     </ul>
   </nav>
 
-    <!-- Sección Hero -->
+    
   <section id="inicio" class="hero fade-in">
     <div class="hero-inner">
       <!-- PERSONA primero arriba -->
@@ -334,7 +570,7 @@
     </a>
 
     <!-- Proyecto 2 -->
-    <a href="https://www.ejemplo2.com" target="_blank" style="text-decoration: none; color: inherit;">
+    <a href="https://gamaku00.github.io/galeria-de-imagen/" target="_blank" style="text-decoration: none; color: inherit;">
       <div class="card">
         <img src="foto.png" alt="Proyecto 2" />
         <h3>fotografia</h3>
@@ -351,7 +587,7 @@
       </div>
     </a>
         <!-- Proyecto 1 -->
-    <a href="https://www.ejemplo1.com" target="_blank" style="text-decoration: none; color: inherit;">
+    <a href="https://gamaku00.github.io/galeria-de-modelaje/" target="_blank" style="text-decoration: none; color: inherit;">
       <div class="card">
         <img src="modelaje.png" alt="Proyecto 1" />
         <h3>modelaje</h3>
@@ -455,7 +691,7 @@
     <p>&copy; 2025 Portafolio kevin garcia. Todos los derechos reservados a gamakuo.</p>
   </footer>
 
-  <!-- Scripts -->
+
   <script>
     function toggleMenu() {
       document.getElementById('sidebar').classList.toggle('active');
